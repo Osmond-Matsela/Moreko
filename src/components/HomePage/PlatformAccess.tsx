@@ -4,10 +4,11 @@ import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import CalendarComponent from './Calendar';
+import { useSession } from 'next-auth/react';
 
 const PlatformAccess = () => {
      const [showCalendar, setShowCalendar] = useState(false);
-
+    
     return (
         <>
         {
@@ -20,16 +21,7 @@ const PlatformAccess = () => {
               Our digital magazine, news articles, downloadable resources, and communication features are available to registered students and parents only.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center bg-transparent">
-              <Link href="/login" className=" text-red-800 hover:bg-gray-100 cursor-pointer" >
-              <Button 
-                size="lg" 
-                className="bg-red-800 hover:bg-red-900 text-gray-100 cursor-pointer"
-               
-              >
-                <Users className="w-5 h-5 mr-2" />
-                Sign In
-              </Button>
-              </Link>
+              
 
                <Button className="bg-gray-50 text-red-800 hover:bg-gray-100 cursor-pointer"size="lg" onClick={() => setShowCalendar(true)}>
                 <Calendar className="w-5 h-5 mr-2" />

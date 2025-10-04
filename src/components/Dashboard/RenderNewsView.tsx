@@ -52,7 +52,7 @@ const RenderNewsView: React.FC = () => {
   const {article, setPosts} = useDatabase();
   const [articles, setArticles] = useState<Article[]>(article);
   const{data: session} = useSession();
-
+  const [loading, setLoading] = useState(false);
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
@@ -71,7 +71,7 @@ const uploadImage = async (): Promise<string> => {
     throw new Error('No valid image file selected');
   }
   
-  console.log('Uploading file:', imageFile.name, 'Size:', imageFile.size, 'Type:', imageFile.type);
+  
   
   // Convert File to base64 (matching the docs format)
   const base64 = await new Promise<string>((resolve, reject) => {
@@ -147,7 +147,7 @@ const uploadImage = async (): Promise<string> => {
     if (!confirm('Are you sure you want to delete this article?')) {
       return;
     }
-
+    setLoading(true);
     try {
       const res = await fetch('/api/delete-article', {
         method: 'DELETE',
@@ -162,18 +162,23 @@ const uploadImage = async (): Promise<string> => {
         if (selectedArticle?.id === articleId) {
           setSelectedArticle(null);
         }
+        setLoading(false);
       } else {
         console.error('Delete failed:', await res.text());
         alert('Failed to delete article');
+        setLoading(false);
       }
     } catch (error) {
       console.error('Delete error:', error);
       alert('Failed to delete article');
+      setLoading(false);
     }
   };
 
   const handleSaveArticle = async () => {
+    
     if (newArticle.title && newArticle.paragraphs[0]) {
+      setLoading(true);
       let imageURL = await uploadImage();
       const article = {
         id: generateUniqueCode("ARTICLE-"),
@@ -206,35 +211,15 @@ const uploadImage = async (): Promise<string> => {
         paragraphs: ['']
       });
       setShowAddForm(false);
-
+      setLoading(false);
     }
     else{
       console.log('error')
+      setLoading(false);
     }
     }
   };
 
-  const getStatusIcon = (status: Article['status']): React.ReactNode => {
-    switch (status) {
-      case 'published':
-        return <CheckCircle className="w-4 h-4 text-green-600" />;
-      case 'pending':
-        return <Clock className="w-4 h-4 text-yellow-600" />;
-      default:
-        return null;
-    }
-  };
-
-  const getStatusColor = (status: Article['status']): string => {
-    switch (status) {
-      case 'published':
-        return 'bg-green-100 text-green-800';
-      case 'pending':
-        return 'bg-yellow-100 text-yellow-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
-  };
 
   return (
     <div className="space-y-6">
@@ -349,10 +334,11 @@ const uploadImage = async (): Promise<string> => {
             <div className="flex space-x-3 pt-4 border-t">
               <button
                 onClick={handleSaveArticle}
+                disabled={!newArticle.title || !newArticle.category || !newArticle.paragraphs.length || !newArticle.featuredImage || loading}
                 className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
               >
                 <Save className="w-4 h-4" />
-                <span>Publish Article</span>
+                <span>{loading ? 'Uploading...' : 'Upload Article'}</span>
               </button>
               <button
                 onClick={() => setShowAddForm(false)}
@@ -414,10 +400,12 @@ const uploadImage = async (): Promise<string> => {
 
                           <button
                             onClick={() => handleDeleteArticle(article.id)}
+                            disabled={loading}
                             className="flex items-center space-x-1 px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50"
                           >
                             <Delete className="w-4 h-4" />
-                            <span>Delete</span>
+                            <span>{
+                              loading ? 'Deleting...' : 'Delete'}</span>
                           </button>
                         </div>
                       </div>

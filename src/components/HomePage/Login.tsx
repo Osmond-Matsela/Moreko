@@ -13,12 +13,14 @@ import styles from "@/components/styles/HomepageStyles.module.css"
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { Modal } from "../Dashboard/Modal";
+import { se } from "date-fns/locale";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const params = useSearchParams()
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     
@@ -36,7 +38,7 @@ const Login = () => {
 
  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
-  
+  setLoading(true);
   try {
     const res = await signIn("credentials", { 
       redirect: false, 
@@ -47,10 +49,15 @@ const Login = () => {
     
     if (res?.error) {
       setError("Incorrect email or password");
+      setLoading(false);
+    }
+    else{
+      setLoading(false);
     }
   } catch (err) {
     console.error('Sign in error:', err);
     setError("Incorrect credentials");
+    setLoading(false);
   }
 };
 
@@ -109,10 +116,14 @@ const Login = () => {
           </div>
 
           <Button
+            disabled={loading}
+
             type="submit"
             className="w-full bg-red-800 hover:bg-red-900 text-white"
           >
-            Sign In
+           {
+            loading ? "Logging in..." : "Login"
+           }
           </Button>
         </form>
 

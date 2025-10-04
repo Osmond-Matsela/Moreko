@@ -71,7 +71,7 @@ const NavButtons = () => {
           >
             <Button
               variant="outline"
-              className="text-red-800 border-none bg-gray-100 cursor-pointer"
+              className="text-red-800 border-none bg-gray-100 cursor-pointer hover:bg-gray-100"
             >
               <Settings className="w-4 h-4 mr-2" />
               Dashboard

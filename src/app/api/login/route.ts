@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const accessToken = signJwtAccessToken(result)
 
     const userResult = { ...result, accessToken };
-    console.log(userResult);
+  
     return NextResponse.json(userResult);
   }
 
