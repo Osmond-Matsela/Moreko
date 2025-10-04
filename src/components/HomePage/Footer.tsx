@@ -6,7 +6,7 @@ const schoolInfo = {
 address: "Mohlarekoma Village, Sekhukhune District, Limpopo Province, South Africa",
     phone: "+27 (15) 491-3233",
     email: "administration@moreko.co.za",
-    established: "2007",
+    established: "1987",
     motto: "Hardwork conquers all",
     principal: "Mrs. EM Mkhabele"
 };

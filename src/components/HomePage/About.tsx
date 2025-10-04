@@ -5,7 +5,7 @@ import { GraduationCap, MapPin } from 'lucide-react';
     address: "Mohlarekoma Village, Sekhukhune District, Limpopo Province, South Africa",
     phone: "+27 (15) 491-3233",
     email: "administration@moreko.co.za",
-    established: "2007",
+    established: "1987",
     motto: "Hardwork conquers all",
     principal: "Mrs. EM Mkhabele"
   };
@@ -51,14 +51,18 @@ const About = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                 At Moreko High School, we strive to be a centre of excellence where every learner feels inspired, supported, and empowered to thrive. 
+              <p className="text-gray-700 leading-relaxed mb-4">
+                At Moreko High School, we strive to be a centre of excellence where every learner feels inspired, supported, and empowered to thrive. 
                 We are committed to creating a nurturing environment led by dedicated teachers, strong leadership, and an engaged community — all working together to achieve quality learning and teaching for every child. 
                 Through growth, accountability, and inclusivity, we aim to shape responsible, confident citizens ready to contribute to a peaceful and prosperous South Africa.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                    Since {schoolInfo.established}, Moreko High has been a proud cornerstone of education in our community — fostering a lasting culture of learning, respect, and achievement.
-                </p>
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Moreko High was established in 1987 by the late Principal Nkosi NJ with just five learners and two educators. Through his dedication — recruiting students and even buying oranges to encourage attendance — the school quickly grew into a full class and laid the foundation for the thriving learning community we have today.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                Since its founding, Moreko High has been a proud cornerstone of education in our community — fostering a lasting culture of learning, respect, and achievement.
+              </p>
+
               </CardContent>
             </Card>
           </div>
