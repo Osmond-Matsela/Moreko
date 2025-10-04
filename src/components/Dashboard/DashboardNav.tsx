@@ -1,16 +1,11 @@
 "use client";
 import {
   Book,
-  BookOpen,
-  DoorOpen,
-  Download,
-  FileText,
-  HamburgerIcon,
+ 
   Home,
   ImageDown,
-  Menu,
-  MenuIcon,
-  Settings,
+
+
   User,
   X,
 } from "lucide-react";
