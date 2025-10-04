@@ -35,7 +35,7 @@ const LatestNews = () => {
 
   if (selectedArticle) {
     return (
-      <div className="max-w-4xl mx-auto p-6">
+      <div className="w-full">
         <button
           onClick={handleCloseArticle}
           className="mb-6 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
@@ -97,7 +97,7 @@ const LatestNews = () => {
   return (
     <>
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl font-bold text-gray-900">Latest News</h2>
+        <h2 className="text-2xl font-bold text-gray-900">Latest News</h2>
         <Link href="/latest-news">
           <Button
             variant="outline"

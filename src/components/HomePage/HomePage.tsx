@@ -39,17 +39,17 @@ const HomePage = () => {
           </section>
 
           {/* Platform Features Preview */}
-          <section className="mb-16 bg-white  rounded-lg p-8">
+          <section className="mb-16 bg-white  rounded-lg p-2">
             <PlatformFeatures />
           </section>
 
           {/* Latest News Section */}
-          <section className="mb-16 bg-white  rounded-lg p-8">
+          <section className="mb-16 bg-white  rounded-lg p-2">
             <LatestNews />
           </section>
 
           {/* Gallery Highlights Section */}
-          <section className="mb-16 bg-white  rounded-lg p-8" id="gallery">
+          <section className="mb-16 bg-white  rounded-lg p-2" id="gallery">
             <Gallery />
           </section>
         </div>

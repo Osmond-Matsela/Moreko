@@ -24,7 +24,7 @@ const ShowGallery: React.FC = () => {
 
   const filteredImages = selectedCategory === "All" 
     ? galleryItems 
-    : galleryItems.filter((item: any) => item.category === selectedCategory);
+    : galleryItems.filter((item: any) => item.category.toLowerCase() === selectedCategory.toLowerCase());
 
   const openModal = (item: GalleryItem) => {
     setSelectedImage(item);
@@ -83,7 +83,7 @@ const ShowGallery: React.FC = () => {
       {/* Gallery Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredImages.map((item: any) => (
-          <Card key={item.id} className="hover:shadow-xl transition-all duration-300 cursor-pointer group">
+          <Card onClick={() => openModal(item)} key={item.id} className="hover:shadow-xl transition-all duration-300 cursor-pointer group">
             <div className="relative aspect-square bg-gray-200 rounded-t-lg overflow-hidden">
               <img 
                 src={item.imageUrl} 

@@ -14,8 +14,7 @@ interface NewsArticle {
   
 }
 
-
-const categories = ["All", "Education", "Events", "Awards", "Facilities", "Sports", "Community", "Academic"];
+const categories = ["All","General",  "Education", "Awards", "Facilities", "Sports", "Community", "Academic"];
 
 const AllNews: React.FC = () => {
   const {posts} = useDatabase();
