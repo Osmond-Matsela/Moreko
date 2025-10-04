@@ -12,29 +12,55 @@ import NavBar from "./NavBar";
 import styles from "@/components/styles/HomepageStyles.module.css"
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
+import { Modal } from "../Dashboard/Modal";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const params = useSearchParams()
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [error, setError] = useState("");
+
   useEffect(() => {
     
-    if(params.get('_error') === 'CredentialsSignin') {
-      alert('Invalid Credentials')
+    const encodedCallbackUrl = params.get("username");
+    let decodedUrl; 
+    if(encodedCallbackUrl){
+      decodedUrl = decodeURIComponent(encodedCallbackUrl); 
+      setEmail(decodedUrl)
+    }
+    else{
+      decodedUrl = "/"
     }
   },[]);
-
-  const handleLogin = async (e:React.FormEvent) => {
-    e.preventDefault();
-    
-    signIn("credentials", { email: name, password: phone }).catch((error) => {
-      console.log(error);
-    })
-  };
   
+
+ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  
+  try {
+    const res = await signIn("credentials", { 
+      redirect: false, 
+      email, 
+      password 
+    });
+  
+    
+    if (res?.error) {
+      setError("Incorrect email or password");
+    }
+  } catch (err) {
+    console.error('Sign in error:', err);
+    setError("Incorrect credentials");
+  }
+};
 
   return (
     <>
+    {
+      error.length > 0 && (
+        <Modal isOpen={true} onClose={() => setError("")} type="error" message={error} title="Invalid Credentials"/>
+      )
+    }
     <NavBar/>
     <div className="min-h-screen bg-red-800 flex justify-center p-4 ">
       <div className={`p-8 bg-white flex items-center justify-center h-fit mt-20 rounded-md ${styles.login}`}>
@@ -55,14 +81,14 @@ const Login = () => {
           
         </div>
 
-        <form className="space-y-6" onSubmit={handleLogin}>
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-2">
             <Label htmlFor="name">Student name</Label>
             <input
               type="text"
               id="name"
               name="name"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="Enter student name"
               className="mt-1 block w-full px-4 py-2 border outline-none border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500"
@@ -75,7 +101,7 @@ const Login = () => {
               type="text"
               id="number"
               name="number"
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="Enter parent's phone number"
               className="mt-1 block w-full px-4 py-2 border outline-none border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500"

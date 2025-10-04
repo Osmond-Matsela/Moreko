@@ -11,7 +11,7 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/login", {
+        const res = await fetch(process.env.NEXTAUTH_URL + "/api/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -21,7 +21,7 @@ const handler = NextAuth({
 
         const user = await res.json();
 
-        if (user) {
+        if ( res.ok && user) {
           return user;
         } else {
           return null;
@@ -36,14 +36,18 @@ const handler = NextAuth({
     },
     async session({ session, token }) {
       session.user = token;
-
       return session;
     },
   },
 
-  pages:{
+  pages: {
     signIn: "/login",
-    signOut: "/",
-  }
+  },
+  
+  // Add this to prevent redirects
+  session: {
+    strategy: "jwt",
+  },
 });
+
 export { handler as GET, handler as POST };
