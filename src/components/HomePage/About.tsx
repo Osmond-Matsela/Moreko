@@ -2,12 +2,12 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { GraduationCap, MapPin } from 'lucide-react';
  const schoolInfo = {
-    address: "123 Education Street, Moreko Village, Limpopo Province",
-    phone: "(015) 123-4567",
-    email: "info@morekohigh.edu.za",
-    established: "1987",
-    motto: "Excellence Through Education",
-    principal: "Mrs. T. Mogale"
+    address: "Mohlarekoma Village, Sekhukhune District, Limpopo Province, South Africa",
+    phone: "+27 (15) 491-3233",
+    email: "administration@moreko.co.za",
+    established: "2007",
+    motto: "Hardwork conquers all",
+    principal: "Mrs. EM Mkhabele"
   };
 const About = () => {
     return (
@@ -52,13 +52,12 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Moreko High School is dedicated to providing quality education that nurtures academic excellence, 
-                  character development, and community leadership. We strive to prepare our learners for success 
-                  in higher education and meaningful careers.
+                 At Moreko High School, we strive to be a centre of excellence where every learner feels inspired, supported, and empowered to thrive. 
+                We are committed to creating a nurturing environment led by dedicated teachers, strong leadership, and an engaged community — all working together to achieve quality learning and teaching for every child. 
+                Through growth, accountability, and inclusivity, we aim to shape responsible, confident citizens ready to contribute to a peaceful and prosperous South Africa.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Since {schoolInfo.established}, we have been a cornerstone of education in our community, 
-                  fostering a culture of learning, respect, and achievement.
+                    Since {schoolInfo.established}, Moreko High has been a proud cornerstone of education in our community — fostering a lasting culture of learning, respect, and achievement.
                 </p>
               </CardContent>
             </Card>
