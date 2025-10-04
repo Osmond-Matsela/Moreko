@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, where, query, getDocs, CACHE_SIZE_UNLIMITED, getDoc, updateDoc, DocumentData } from "firebase/firestore"; 
+import { collection, doc, setDoc, where, query, getDocs, CACHE_SIZE_UNLIMITED, getDoc, updateDoc, DocumentData, deleteDoc } from "firebase/firestore"; 
 import { app } from "@/lib/firebase";
 import { initializeFirestore} from "firebase/firestore";
 
@@ -49,3 +49,12 @@ export const getParent = async (collectionName: string, phone: string, name: str
 export const uploadArticle = async (collectionName: string, data: any, id: string) => {
     await setDoc(doc(db, collectionName, id), data);
 };
+
+export const deleteArticle = async (collectionName: string, id: string) => {
+  try {
+    await deleteDoc(doc(db, collectionName, id));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}

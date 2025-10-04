@@ -243,10 +243,7 @@ const uploadImage = async (): Promise<string> => {
           <h2 className="text-2xl font-bold text-gray-900">School News</h2>
           <p className="text-gray-600">Manage and publish school news articles</p>
         </div>
-        <div className="flex items-center space-x-2 px-4 py-2 bg-yellow-100 rounded-lg">
-          <Clock className="w-5 h-5 text-yellow-600" />
-          <span className="font-medium text-yellow-800">{articles.length} articles published</span>
-        </div>
+      
       </div>
 
       <div className="flex justify-end mb-4">
@@ -378,24 +375,24 @@ const uploadImage = async (): Promise<string> => {
               <div className="space-y-4">
                 {articles.map((article) => (
                   <div key={article.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-4 flex-wrap">
                       <img
                         src={article.featuredImage}
                         alt={article.title}
-                        className="w-40 h-40 object-cover rounded-lg flex-shrink-0"
+                        className="w-full h-50 object-cover rounded-lg flex-shrink-0 mb-5"
                       />
                       <div className="flex-1">
                         <div className="flex items-start justify-between mb-3">
                           <div className="flex-1">
                             <h3 className="font-semibold text-lg mb-1">{article.title}</h3>
-                            <div className="flex items-center space-x-4 text-sm text-gray-600 mb-2">
+                            <div className="flex items-center  space-x-4 text-sm w-full text-gray-600 mb-2">
                               <span className="flex items-center">
                                 <User className="w-4 h-4 mr-1" />
-                                {article.author}
+                                {article.author.split(" ")[0]}
                               </span>
                               <span className="flex items-center">
                                 <Calendar className="w-4 h-4 mr-1" />
-                                {article.submittedAt}
+                                {article.submittedAt.split(",")[0]}
                               </span>
                               <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
                                 {article.category}
@@ -403,10 +400,7 @@ const uploadImage = async (): Promise<string> => {
                             </div>
                             <p className="text-gray-700 line-clamp-2">{article.content}</p>
                           </div>
-                          <span className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${getStatusColor(article.status)} ml-4`}>
-                            {getStatusIcon(article.status)}
-                            <span className="ml-1 capitalize">{article.status}</span>
-                          </span>
+                         
                         </div>
                         
                         <div className="flex space-x-2">
