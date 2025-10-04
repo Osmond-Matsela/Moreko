@@ -3,12 +3,12 @@ import React from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 const schoolInfo = {
-    address: "123 Education Street, Moreko Village, Limpopo Province",
-    phone: "(015) 123-4567",
-    email: "info@morekohigh.edu.za",
+    address: "Mohlarekoma Village, Sekhukhune District, Limpopo Province, South Africa",
+    phone: "+27 (15) 491-3233",
+    email: "administration@moreko.co.za",
     established: "1987",
-    motto: "Excellence Through Education",
-    principal: "Mrs. T. Mogale"
+    motto: "Hard Work Conquers All",
+    principal: "Mrs. EM Mkhabele"
   };
 const Hero = () => {
     return (

@@ -7,7 +7,7 @@ address: "Mohlarekoma Village, Sekhukhune District, Limpopo Province, South Afri
     phone: "+27 (15) 491-3233",
     email: "administration@moreko.co.za",
     established: "1987",
-    motto: "Hardwork conquers all",
+    motto: "Hard Work Conquers All",
     principal: "Mrs. EM Mkhabele"
 };
 const Footer = () => {
