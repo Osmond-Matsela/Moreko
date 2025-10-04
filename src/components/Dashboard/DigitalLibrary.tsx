@@ -157,7 +157,7 @@ const types = ["All Types", "Study Guide", "Manual", "Analysis", "Reference", "T
 type ViewMode = 'grid' | 'list';
 type SortBy = 'recent' | 'popular'  | 'alphabetical';
 
-const DigitalLibrary: React.FC = () => {
+const DigitalLibrary = ({setOpen} : {setOpen: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedSubject, setSelectedSubject] = useState<string>('All Subjects');
   const [selectedGrade, setSelectedGrade] = useState<string>('All Grades');
@@ -165,6 +165,7 @@ const DigitalLibrary: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [sortBy, setSortBy] = useState<SortBy>('recent');
   const [showFilters, setShowFilters] = useState<boolean>(false);
+ 
 
   // Filter and sort resources
   const filteredAndSortedResources = useMemo<LibraryResource[]>(() => {
@@ -318,6 +319,12 @@ const DigitalLibrary: React.FC = () => {
 
   return (
     <div className={`min-h-screen p-4 ${styles.styles}`}>
+      <button
+          onClick={() => setOpen(false)}
+          className="mb-6 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+        >
+          ← Back to News
+        </button>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
@@ -329,20 +336,7 @@ const DigitalLibrary: React.FC = () => {
                 <p className="text-gray-600">Access study materials, guides, and resources</p>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <button title='Grid View' 
-                onClick={() => setViewMode('grid')}
-                className={`p-2 rounded ${viewMode === 'grid' ? 'bg-red-100 text-red-600' : 'text-gray-400'}`}
-              >
-                <Grid className="w-5 h-5" />
-              </button>
-              <button title='List View'
-                onClick={() => setViewMode('list')}
-                className={`p-2 rounded ${viewMode === 'list' ? 'bg-red-100 text-red-600' : 'text-gray-400'}`}
-              >
-                <List className="w-5 h-5" />
-              </button>
-            </div>
+            
           </div>
 
           {/* Search and Filters */}

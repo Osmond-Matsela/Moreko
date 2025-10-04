@@ -4,33 +4,19 @@ import React, { useEffect, useState } from 'react';
 import { 
   FileText, 
   Download, 
-  Clock, 
-  CheckCircle,
-  XCircle,
-  PlusCircle, 
-  LogOut, 
-  BookOpen,
+
   BarChart3,
-  MessageSquare,
-  User,
-  Save,
-  X,
-  Upload,
-  Image as ImageIcon,
-  Trash2
+ 
 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
 import styles from "@/components/styles/DashboardStyles.module.css";
 import DashNavBar from './DashboardNav';
-import DigitalLibrary from './DigitalLibrary';
+
 import { useDatabase } from '@/context/Database';
 import { useSession } from 'next-auth/react';
-import { id } from 'date-fns/locale';
-import RenderNewsView from './RenderNewsView';
+
 import RenderContent from './RenderContent';
 
 
@@ -60,14 +46,7 @@ const AdminDashboard = () => {
             <BarChart3 className="w-4 h-4 mr-2" />
             Dashboard
           </Button>
-          <Button
-            variant={activeView === 'library' ? 'default' : 'outline'}
-            onClick={() => setActiveView('library')}
-            className={activeView === 'library' ? 'bg-red-800 hover:bg-red-900 text-white' : 'border-none cursor-pointer shadow-md hover:shadow-sm'}
-          >
-            <BookOpen className="w-4 h-4 mr-2" />
-            Library
-          </Button>
+         
           <Button
             variant={activeView === 'news' ? 'default' : 'outline'}
             onClick={() => setActiveView('news')}
@@ -85,7 +64,9 @@ const AdminDashboard = () => {
             Downloads
           </Button>
         </nav>
-
+        <h2 className="text-3xl  font-bold text-gray-900 mb-4">
+          Welcome {session?.user?.name}
+        </h2>
         {/* Main Content */}
         <RenderContent activeView={activeView} setActiveView={setActiveView} setShowNewArticleForm={setShowNewArticleForm}/>
       </div>
