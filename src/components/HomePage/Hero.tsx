@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 const schoolInfo = {
-    address: "Mohlarekoma Village, Sekhukhune District, Limpopo Province, South Africa",
+    address: "Moreko Secondary School, R579, Phokwane, 1061",
     phone: "+27 (15) 491-3233",
     email: "administration@moreko.co.za",
     established: "1987",
