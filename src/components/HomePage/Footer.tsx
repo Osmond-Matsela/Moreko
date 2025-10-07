@@ -37,14 +37,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-red-200">
-              <li>
-                <Button
-                  variant="link"
-                  className="text-red-200 hover:text-gray-100 p-0 h-auto cursor-pointer"
-                >
-                  Digital Platform
-                </Button>
-              </li>
+
               <li>
                 <a href="#achievements" className="hover:text-gray-100">
                   Our Achievements

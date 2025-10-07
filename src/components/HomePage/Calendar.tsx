@@ -19,10 +19,9 @@ const CalendarComponent = ({ close } : { close: (open: boolean) => void}) => {
     const [dateRange, setDateRange] = useState<DateRange | undefined>();
   return (
     <div
-      className={`${styles.main} min-h-screen min-w-screen flex justify-center p-4 absolute`}
-    >
-        
-      <Card className={`${styles.calendar}`}>
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+    > 
+      <Card className="relative w-full max-w-md md:max-w-lg lg:max-w-xl p-6 rounded-2xl shadow-xl bg-white">
         <span className="absolute top-[-50] right-[-50] cursor-pointer text-white" onClick={closeCalendar}>
             <X className="w-10 h-10" />
         </span>

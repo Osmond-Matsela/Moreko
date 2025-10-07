@@ -73,7 +73,7 @@ const Login = () => {
       <div className={`p-8 bg-white flex items-center justify-center h-fit mt-20 rounded-md ${styles.login}`}>
         <Card className={`rounded-none max-w-sm flex flex-col space-x-7 ${styles.card}`}>
         <h1 className="font-bold text-gray-800 mb-4 text-center">
-          Welcome to Moreko High School
+          Welcome to Moreko High School Learner Portal
         </h1>
         <p className="text-gray-600 mt-2 text-center">Hard Work Conquers All</p>
       </Card>
