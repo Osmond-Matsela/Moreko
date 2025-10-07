@@ -60,7 +60,7 @@ const Footer = () => {
                   variant="link"
                   className="text-red-200 hover:text-gray-100 p-0 h-auto cursor-pointer"
                 >
-                  Admin Portal
+                  <a href={process.env.NEXT_PUBLIC_ADMIN_URL}>Admin Portal</a>
                 </Button>
               </li>
             </ul>
