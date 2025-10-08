@@ -8,8 +8,18 @@ address: "Moreko Secondary School, R579, Phokwane, 1061",
     email: "administration@moreko.co.za",
     established: "1987",
     motto: "Hard Work Conquers All",
-    principal: "Mrs. EM Mkhabele"
+    principal: "Mrs. EM Mkhabele",
+    instagram: (process.env.NEXT_PUBLIC_IG_URL ?? "").trim() || "#"
 };
+const igUrl = schoolInfo.instagram;
+const hasIg = igUrl !== "#";
+
+const InstagramIcon = ({ className = "w-4 h-4 mr-2 flex-shrink-0" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7z"/>
+    <path d="M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.7 6.3a0.9 0.9 0 1 1-1.8 0 0.9 0.9 0 0 1 1.8 0z"/>
+  </svg>
+);
 const Footer = () => {
   return (
     <footer className="bg-red-800 text-gray-100 py-12">
@@ -32,6 +42,19 @@ const Footer = () => {
               Committed to providing quality education and nurturing the leaders
               of tomorrow since {schoolInfo.established}.
             </p>
+            <p className="flex items-center mt-4">
+                <InstagramIcon />
+                <a
+                  href={igUrl}
+                  target={hasIg ? "_blank" : undefined}
+                  rel={hasIg ? "noopener noreferrer" : undefined}
+                  className="hover:text-gray-100 text-red-200"
+                  aria-label="Moreko Instagram"
+                >
+                  Instagram
+                </a>
+              </p>
+              
           </div>
 
           <div>

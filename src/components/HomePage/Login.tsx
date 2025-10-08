@@ -83,7 +83,7 @@ const Login = () => {
            <Image src={"/images/logo.png"} width={100} height={100} alt='LOGO'/>
           </div>
           <h1 className="text-4xl font-bold text-gray-800">
-            Login
+            Learner Login
           </h1>
           
         </div>
