@@ -11,6 +11,19 @@ html {
   scroll-behavior: smooth;
 }
 
+
+.custom-pink {
+  background-color:"red-800";
+}
+
+.ligt-custom-pink{
+  background-color: #f58c8c;
+}
+
+.dark-custom-pink{
+  background-color: #f5a9a9;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
