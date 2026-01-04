@@ -46,7 +46,7 @@ const PlatformFeatures = () => {
             </div>
           
             <div className="flex flex-col md:flex-row justify-center gap-6">
-                <Card className="text-center p-6 opacity-75" onClick={() => {
+                {/* <Card className="text-center p-6 opacity-75" onClick={() => {
                   if (status === 'authenticated') {
                     setDigitalLibrary(true);
                   }
@@ -66,7 +66,7 @@ const PlatformFeatures = () => {
                       <></>
                     )
                    }
-                </Card>
+                </Card> */}
 
                 <Card 
                     className="text-center p-6 opacity-75 cursor-pointer hover:opacity-100 transition-opacity"
@@ -102,6 +102,8 @@ const PlatformFeatures = () => {
                 <div className="fixed inset-0 bg-red-800/90 bg-opacity-50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-lg max-w-md w-full p-6 relative">
                         <button
+                            title = "Close Modal"
+                            type='button'
                             onClick={() => setIsNewsletterModalOpen(false)}
                             className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
                         >

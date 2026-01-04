@@ -50,7 +50,7 @@ const HomePage = () => {
 
           {/* Gallery Highlights Section */}
           <section className="mb-16 bg-white  rounded-lg p-2" id="gallery">
-            <Gallery />
+            {/* <Gallery /> */}
           </section>
         </div>
 

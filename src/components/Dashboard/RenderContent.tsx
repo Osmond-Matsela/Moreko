@@ -61,7 +61,7 @@ const RenderContent = ({ activeView , setActiveView,setShowNewArticleForm,stats=
                     </div>
                   </Button>
 
-                  <Button 
+                  {/* <Button 
                     onClick={() => setActiveView('downloads')} 
                     variant="outline" 
                     className='border-none cursor-pointer shadow-md hover:shadow-sm h-20 bg-white hover:text-red-800 hover:bg-white'
@@ -70,7 +70,7 @@ const RenderContent = ({ activeView , setActiveView,setShowNewArticleForm,stats=
                       <Download className="w-6 h-6 mx-auto mb-2" />
                       <span>View Downloads</span>
                     </div>
-                  </Button>
+                  </Button> */}
                 </div>
               </CardContent>
             </Card>

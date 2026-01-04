@@ -55,14 +55,14 @@ const AdminDashboard = () => {
             <FileText className="w-4 h-4 mr-2" />
             My Articles
           </Button>
-          <Button
+          {/* <Button
             variant={activeView === 'downloads' ? 'default' : 'outline'}
             onClick={() => setActiveView('downloads')}
             className={activeView === 'downloads' ? 'bg-red-800 hover:bg-red-900 text-white' : 'border-none cursor-pointer shadow-md hover:shadow-sm'}
           >
             <Download className="w-4 h-4 mr-2" />
             Downloads
-          </Button>
+          </Button> */}
         </nav>
         <h2 className="text-3xl  font-bold text-gray-900 mb-4">
           Welcome {session?.user?.name}
